@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/cart.css">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/useritem/list">
+            <img src="/image/PennyShop.png" alt="PennyShop Logo">
+            PennyShop
+        </a>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{/admin/category/{category}(category='Accessories')}">Accessories</a>
+                    <a class="dropdown-item" th:href="@{/admin/category/{category}(category='Food')}">Food</a>
+                    <a class="dropdown-item" th:href="@{/admin/category/{category}(category='Health')}">Health</a>
+                    <a class="dropdown-item" th:href="@{/admin/category/{category}(category='Toy')}">Toy</a>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="navbar-nav">
+            <a class="nav-link" href="/transaction/showCart">
+                <img src="../image/cart.png" alt="Cart" width="40" height="40">
+            </a>
+            <a class="nav-link" href="/user/showInfo">
+                <img src="../image/3135715.png" alt="Account" width="40" height="40">
+            </a>
+        </div>
+        <span th:text="${session.cu != null ? session.cu.getUsername() : null}" class="btn"></span>
+        <a class="btn btn-warning btn-sm m-1" href="/index">Log Out</a>
+    </div>
+</nav>
+
+<!-- Cart Page Content -->
+<div class="container mt-4">
+    <h2>Shopping Cart</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4>Your Cart</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Loop through cart items -->
+                    <div th:each="item : ${tl}">
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <img th:src="@{${item.itemPic}}" class="img-fluid" alt="Product Image">
+                            </div>
+                            <div class="col-md-3">
+                                <strong>Product Name:</strong><h5 th:text="${item.name}">Product Name</h5>
+                                <strong>Category:</strong><p class="text-muted" th:text="${item.category}">Category</p>
+                            </div>
+                            <div class="col-md-2">
+                                <strong>Price:</strong><h5 th:text="'$' + ${item.price}">Price</h5>
+                            </div>
+                            <div class="col-md-2">
+                                <a th:href="@{/transaction/delete/{transactionId}(transactionId=${item.transactionId})}" class="btn btn-primary">Pay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+
+.collapse .navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navbar .form-control {
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar .nav-link {
+    margin-right: 15px;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+}
+
+.footer p,
+.footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.navbar .nav-link {
+    margin-right: 15px;
+}
+
+#carouselExampleCaptions {
+    width: 1100px;
+    margin: 0 auto;
+    /* Center the carousel */
+}
+
+.carousel-item img {
+    height: 400px;
+    /* Set the desired height for the images */
+    width: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;
+    /* Center the images */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: auto; /* Atur lebar sesuai kebutuhan */
+    background-color: rgba(0, 0, 0, 0.5); /* Ganti warna latar belakang sesuai keinginan */
+    border: none; /* Hapus border jika tidak diperlukan */
+}
+
+/* Style tambahan untuk versi desktop */
+@media (min-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        padding: 10px; /* Sesuaikan padding untuk versi desktop */
+    }
+}
