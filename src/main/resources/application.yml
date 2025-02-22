@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 3306
 
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/petshop
+    url: mysql://root:sfLzOExDaeXCFHWUGQLmrbVOOQfTCwVW@mysql.railway.internal:3306/railway
     username: root
-    password: 1234
+    password: sfLzOExDaeXCFHWUGQLmrbVOOQfTCwVW
   servlet:
     multipart:
       max-request-size: 10MB
